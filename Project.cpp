@@ -1,6 +1,9 @@
 #include "stdafx.h"
+#include "Character.h"
 int main(int argc, char ** argv) {
 	
+	Character myCharacter = Character(1, 2);
+
 	initscr();
 	start_color();
 	int windowY = 20;
