@@ -1,6 +1,7 @@
+#include "stdafx.h"
 #include "Character.h"
 
-Character::Character(int x, int y) {
+Character::Character(int x, int y){
 	this->xCoordinate = x;
 	this->yCoordinate = y;
 };
@@ -13,12 +14,19 @@ void Character::setYCoordinate(int y) {
 	this->yCoordinate = y;
 }
 
-int Character::getXCoordinate() {
+int Character::getXCoordinate() const{
 	return this->xCoordinate;
 }
 
-int Character::getYCoordinate() {
+int Character::getYCoordinate() const{
 	return this->yCoordinate;
+}
+
+void Character::move(Block block)
+{
+	if (block.getCanStand) {
+		this->setXCoordinate();
+	}
 }
 
 Character::~Character() {

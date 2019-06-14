@@ -1,8 +1,8 @@
-#include "Move.h"
+#include "Action.h"
 
 #pragma once
 
-class Character : public Move{
+class Character : public Action{
 private:
 	int xCoordinate;
 	int yCoordinate;
@@ -10,7 +10,8 @@ public:
 	Character(int x, int y);
 	void setXCoordinate(int x);
 	void setYCoordinate(int y);
-	int getXCoordinate();
-	int getYCoordinate();
+	int getXCoordinate() const;
+	int getYCoordinate() const;
+	void move(Block block);
 	~Character();
 };

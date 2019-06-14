@@ -3,13 +3,17 @@
 #pragma once
 class Block {
 private:
+	int xCoordinate;
+	int yCoordinate;
 	bool isMovable;
 	bool canStand;
 	int color;
 public:
-	Block(bool moveable, bool standable, int c);
-	bool getMovable();
-	bool getCanStand();
-	int getColor();
+	Block(int x, int y, bool movable, bool canStand, int c);
+	int getXCoordinate() const;
+	int getYCoordinate() const;
+	bool getMovable() const;
+	bool getCanStand() const;
+	int getColor() const;
 	~Block();
 };

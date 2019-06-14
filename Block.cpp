@@ -1,20 +1,28 @@
+#include "stdafx.h"
 #include "Block.h"
 
-Block::Block(bool movable, bool canStand, int c) {
+Block::Block(int x, int y, bool movable, bool canStand, int c) {
+	this->xCoordinate = x;
+	this->yCoordinate = y;
 	this->isMovable = movable;
 	this->canStand = canStand;
 	this->color = c;
 }
-
-bool Block::getMovable() {
+int Block::getXCoordinate() const {
+	return this->xCoordinate;
+}
+int Block::getYCoordinate() const {
+	return this->yCoordinate;
+}
+bool Block::getMovable() const{
 	return this->isMovable;
 }
 
-bool Block::getCanStand() {
+bool Block::getCanStand() const {
 	return this->canStand;
 }
 
-int Block::getColor() {
+int Block::getColor() const {
 	return this->color;
 }
 
