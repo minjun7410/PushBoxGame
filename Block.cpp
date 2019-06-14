@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "Block.h"
 
+Block::Block() {
+
+}
+
 Block::Block(int x, int y, bool movable, bool canStand, int c) {
 	this->xCoordinate = x;
 	this->yCoordinate = y;

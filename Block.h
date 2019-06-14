@@ -9,6 +9,7 @@ private:
 	bool canStand;
 	int color;
 public:
+	Block();
 	Block(int x, int y, bool movable, bool canStand, int c);
 	int getXCoordinate() const;
 	int getYCoordinate() const;
