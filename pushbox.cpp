@@ -1,7 +1,6 @@
 #include "Character.h"
 #include "Stage.h"
 #include "Map.h"
-#include "stdafx.h"
 #include <string>
 #include <iostream>
 void renderObject(Stage stage, Block** map,Character user);
