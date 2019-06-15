@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Character.h"
+#include <iostream>
 
 Character::Character(int x, int y){
 	this->xCoordinate = x;
@@ -22,10 +23,33 @@ int Character::getYCoordinate() const{
 	return this->yCoordinate;
 }
 
-void Character::move(Block block)
+void Character::move(int destinationX,int destinationY, Block &block, Block **map)
 {
-	if (block.getCanStand) {
-		this->setXCoordinate();
+	std::cout << "Movable: " << block.getMovable() << std::endl;
+	std::cout << "canStand: " << block.getCanStand() << std::endl;
+	if (block.getCanStand()) {
+		this->xCoordinate = block.getXCoordinate();
+		this->yCoordinate = block.getYCoordinate();
+		return;
+	}
+	if (block.getMovable()) {
+		translocate(destinationX, destinationY, block, map);
+	}
+}
+void Character::translocate(int destinationX, int destinationY, Block &block, Block **map) {
+	int differenceByOneBlockOnAxisToX = destinationX - this->xCoordinate;
+	int differenceByOneBlockOnAxisToY = destinationY - this->yCoordinate;
+	// std::cout << "myX: " << this->xCoordinate << " myY: " << this->yCoordinate << std::endl;
+	// std::cout << "differenceByOneBlockOnAxisToX: " << differenceByOneBlockOnAxisToX << " differenceByOneBlockOnAxisToY: " << differenceByOneBlockOnAxisToY << std::endl;
+	Block nextBlock = map[destinationX + differenceByOneBlockOnAxisToX][destinationY + differenceByOneBlockOnAxisToY];
+	if (nextBlock.getCanStand()) {
+		Block characterStoodBlock = map[this->xCoordinate][this->yCoordinate];
+		map[nextBlock.getXCoordinate()][nextBlock.getYCoordinate()] = block;
+		map[destinationX][destinationY] = Block(destinationX, destinationY, false, true, 0);
+		move(destinationX, destinationY, map[destinationX][destinationY], map);
+	}
+	else {
+		return;
 	}
 }
 

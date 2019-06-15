@@ -5,7 +5,13 @@
 class Action {
 public:
 	Action();
-	virtual void move(Block block) const;
+	int getStep() const;
+	int getPush() const;
+	virtual void move(int destinationX, int destinationY, Block block) const;
+	virtual void translocate(Block block) const;
 	~Action();
-
+private:
+	int nStep;
+	int nPush;
+	int nLevel;
 };

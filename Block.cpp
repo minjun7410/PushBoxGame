@@ -12,12 +12,15 @@ Block::Block(int x, int y, bool movable, bool canStand, int c) {
 	this->canStand = canStand;
 	this->color = c;
 }
+
 int Block::getXCoordinate() const {
 	return this->xCoordinate;
 }
+
 int Block::getYCoordinate() const {
 	return this->yCoordinate;
 }
+
 bool Block::getMovable() const{
 	return this->isMovable;
 }

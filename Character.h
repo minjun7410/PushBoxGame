@@ -12,6 +12,7 @@ public:
 	void setYCoordinate(int y);
 	int getXCoordinate() const;
 	int getYCoordinate() const;
-	void move(Block block);
+	void move(int destinationX, int destinationY, Block &block, Block **map);
+	void translocate(int destinationX, int destinationY, Block &block, Block **map);
 	~Character();
 };
