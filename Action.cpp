@@ -3,6 +3,11 @@
 
 Action::Action() {
 
+}void Action::setStep(int n) {
+	this->nStep = n;
+}
+void Action::setPush(int n) {
+	this->nPush = n;;
 }
 int Action::getStep() const
 {
@@ -27,4 +32,3 @@ void Action::translocate(Block block) const {
 Action::~Action() {
 
 }
-

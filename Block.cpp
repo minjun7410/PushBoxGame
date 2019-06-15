@@ -21,7 +21,7 @@ int Block::getYCoordinate() const {
 	return this->yCoordinate;
 }
 
-bool Block::getMovable() const{
+bool Block::getMovable() const {
 	return this->isMovable;
 }
 

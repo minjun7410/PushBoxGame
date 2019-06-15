@@ -1,9 +1,0 @@
-class 디자인 5가지 원칙
-1. single - responsibility 원칙
-: 클래스는 오직 하나의 responsibility(function) 을 가지도록 디자인 해야한다.
-2. open - closed 원칙
-: "클래스를 확장하기 쉽게 디자인하라" , "변화시키기 어렵게 디자인하라"
-3. liskov substitution 원칙
-4. dependency invortion 원칙
-5. interface segregation 원칙
-

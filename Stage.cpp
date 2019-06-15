@@ -15,7 +15,7 @@ static const int stageOne[9][7] =
 };
 static const int stageTwo[7][7] =
 {
-{ 1,1,1,1,1,1,1 },
+	{ 1,1,1,1,1,1,1 },
 { 1,0,3,0,3,0,1 },
 { 1,3,2,2,2,3,1 },
 { 1,0,2,0,2,0,1 },
@@ -25,7 +25,7 @@ static const int stageTwo[7][7] =
 };
 static const int stageThree[5][8] =
 {
-{ 1,1,1,1,1,1,1,1 },
+	{ 1,1,1,1,1,1,1,1 },
 { 1,3,0,0,1,0,0,1 },
 { 1,0,0,2,2,2,0,1 },
 { 1,3,3,0,0,0,0,1 },
@@ -33,7 +33,7 @@ static const int stageThree[5][8] =
 };
 static const int stageFour[8][8] =
 {
-{ 0,1,1,1,1,1,0,0 },
+	{ 0,1,1,1,1,1,0,0 },
 { 0,1,0,0,1,1,1,0 },
 { 0,1,0,2,0,0,1,0 },
 { 1,1,1,0,1,0,1,1 },
@@ -71,6 +71,7 @@ void Stage::loadStage(int level) {
 		this->startingCharacterXCoordinate = 3;
 		this->startingCharacterYCoordinate = 3;
 
+		this->Matrix = new int*[stageSizeofRow];
 		for (int i = 0; i < stageSizeofRow; i++) {
 			this->Matrix[i] = new int[stageSizeofColumn];
 		}
@@ -87,6 +88,7 @@ void Stage::loadStage(int level) {
 		this->startingCharacterXCoordinate = 2;
 		this->startingCharacterYCoordinate = 1;
 
+		this->Matrix = new int*[stageSizeofRow];
 		for (int i = 0; i < stageSizeofRow; i++) {
 			this->Matrix[i] = new int[stageSizeofColumn];
 		}
@@ -103,6 +105,7 @@ void Stage::loadStage(int level) {
 		this->startingCharacterXCoordinate = 2;
 		this->startingCharacterYCoordinate = 2;
 
+		this->Matrix = new int*[stageSizeofRow];
 		for (int i = 0; i < stageSizeofRow; i++) {
 			this->Matrix[i] = new int[stageSizeofColumn];
 		}
