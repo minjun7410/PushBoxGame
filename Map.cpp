@@ -20,6 +20,7 @@ Map::Map(int sizeX, int sizeY, int** arr)
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 	this->Matrix = arr;
+	reverseMatrix();
 }
 
 void Map::reverseMatrix()
@@ -35,7 +36,7 @@ void Map::reverseMatrix()
 	}
 
 	for (int i = 0; i < this->sizeY; i++) {
-		for (int k = 0; k < 9; k++) {
+		for (int k = 0; k < this->sizeX; k++) {
 			reversedMatrix[i][k] = this->Matrix[k][i];
 		}
 	}
@@ -52,16 +53,17 @@ void Map::reverseMatrix()
 				this->map[i][k] = Block(i, k, false, true, 0);
 				break;
 			case 1:
-				this->map[i][k] = Block(i, k, false, false, 0);
+				this->map[i][k] = Block(i, k, false, false, 1);
 				break;
 			case 2:
-				this->map[i][k] = Block(i, k, true, false, 0);
+				this->map[i][k] = Block(i, k, true, false, 2);
 				break;
 			case 3:
-				this->map[i][k] = Block(i, k, false, true, 0);
+				this->map[i][k] = Block(i, k, false, true, 3);
+				this->nDestination++;
 				break;
 			case 4:
-				this->map[i][k] = Block(i, k, false, false, 0);
+				this->map[i][k] = Block(i, k, false, false, 4);
 				break;
 			}
 		}
@@ -74,9 +76,31 @@ void Map::reverseMatrix()
 
 }
 
+int Map::getDestinations() {
+	return this->nDestination;
+}
+
+int** Map::getDestinationCoordinateArray() {
+	int** arr = new int*[nDestination];
+	for (int i = 0; i < nDestination; i++) {
+		arr[i] = new int[2];
+	}
+
+	int count = 0;
+	for (int i = 0; i < this->sizeY; i++) {
+		for (int k = 0; k < this->sizeX; k++) {
+			if (this->map[i][k].getColor() == 3) {
+				arr[count][0] = i;
+				arr[count][1] = k;
+				count++;
+			}
+		}
+	}
+	return arr;
+}
+
 Block** Map::getMap()
 {
-	reverseMatrix();
 	return this->map;
 }
 

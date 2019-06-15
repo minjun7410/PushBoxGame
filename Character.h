@@ -1,6 +1,5 @@
+#include "Block.h"
 #include "Action.h"
-
-#pragma once
 
 class Character : public Action{
 private:

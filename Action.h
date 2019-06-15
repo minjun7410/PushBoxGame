@@ -1,7 +1,5 @@
 #include "Block.h"
 
-#pragma once
-
 class Action {
 public:
 	Action();
