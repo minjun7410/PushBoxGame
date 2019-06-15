@@ -6,7 +6,4 @@ public:
 	void updatePush(int n);
 	void updateLevel(int n);
 private:
-	int nStep;
-	int nPush;
-	int nLevel;
 };

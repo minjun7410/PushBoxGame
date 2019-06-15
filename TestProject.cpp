@@ -7,21 +7,19 @@
 
 int main() {
 
-	Character user = Character(0, 0);
-	Stage myStage = Stage();
-	myStage.loadStage(1);
-	Map mapCreator = Map(myStage.getStageSizeofRow(), myStage.getStageSizeofColumn() , myStage.getMatrix());
+	Stage stage = Stage();
+	stage.loadStage(1);
+	Character user = Character(stage.getStartingCharacterXCoordinate(), stage.getStartingCharacterYCoordinate());
+	Map mapCreator = Map(stage.getStageSizeofRow(), stage.getStageSizeofColumn() , stage.getMatrix());
 	Block** map = mapCreator.getMap();
-
-	std::cout << myStage.getStageLevel() << std::endl;
 
 	// ¸Ê ÁÂÇ¥ Ãâ·Â
 	for (int i = 0; i < 9; i++) {
-	for (int k = 0; k < 7; k++) {
-	// std::cout << map[k][i].getMovable() << " ";
-	std::cout << "(" << map[k][i].getXCoordinate() << "," << map[k][i].getYCoordinate() << ")" << " ";
-	}
-	std::cout << std::endl;
+		for (int k = 0; k < 7; k++) {
+		// std::cout << map[k][i].getMovable() << " ";
+		std::cout << "(" << map[k][i].getXCoordinate() << "," << map[k][i].getYCoordinate() << ")" << " ";
+		}
+		std::cout << std::endl;
 	}
 
 	/* int list[9][7] =

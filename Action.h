@@ -13,5 +13,4 @@ public:
 private:
 	int nStep;
 	int nPush;
-	int nLevel;
 };

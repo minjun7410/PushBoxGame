@@ -2,6 +2,9 @@
 #include "Character.h"
 #include <iostream>
 
+Character::Character() {
+};
+
 Character::Character(int x, int y){
 	this->xCoordinate = x;
 	this->yCoordinate = y;
