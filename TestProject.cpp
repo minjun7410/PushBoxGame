@@ -10,6 +10,11 @@ int main() {
 	Stage stage = Stage();
 	stage.loadStage(1);
 	Character user = Character(stage.getStartingCharacterXCoordinate(), stage.getStartingCharacterYCoordinate());
+	/*
+	Character user = Character();
+	user.setXCoordinate(stage.getStartingCharacterXCoordinate());
+	user.setYCoordinate(stage.getStartingCharacterYCoordinate());
+	*/
 	Map mapCreator = Map(stage.getStageSizeofRow(), stage.getStageSizeofColumn() , stage.getMatrix());
 	Block** map = mapCreator.getMap();
 
@@ -20,6 +25,26 @@ int main() {
 		std::cout << "(" << map[k][i].getXCoordinate() << "," << map[k][i].getYCoordinate() << ")" << " ";
 		}
 		std::cout << std::endl;
+	}
+
+	while (true) {
+	for (int i = 0; i < 9; i++) {
+		for (int k = 0; k < 7; k++) {
+		if (k == user.getXCoordinate() && i == user.getYCoordinate()) {
+		std::cout << "M" << " ";
+		}
+		else {
+		std::cout << map[k][i].getCanStand() << " ";
+		}
+	}
+	std::cout << std::endl;
+	}
+	std::cout << "my Character: " << user.getXCoordinate() << "," << user.getYCoordinate() << "\n";
+
+	// 캐릭터 움직임
+	int x, y;
+	std::cin >> x >> y;
+	user.move(x, y, map[x][y], map);
 	}
 
 	/* int list[9][7] =
